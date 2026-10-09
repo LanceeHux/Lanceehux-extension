@@ -1,7 +1,8 @@
 import { useState, useEffect }  from "react"
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { styles } from "./styles"
 
-export default function App() {
+ function Landing() {
   const [ burger, setBurger ] = useState(false)
   const [time, setTime] = useState('');
 
@@ -12,10 +13,12 @@ export default function App() {
     { name: 'Facebook', img: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231877F2"/><text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="75" fill="white">f</text></svg>', url: 'https://facebook.com'},
     { name: 'Instagram', img: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="%23fdf497"/><stop offset="5%" stop-color="%23fdf497"/><stop offset="45%" stop-color="%23fd5949"/><stop offset="60%" stop-color="%23d6249f"/><stop offset="100%" stop-color="%23285AEB"/></linearGradient></defs><rect width="100" height="100" rx="24" fill="url(%23ig)"/><path d="M50 31.5C40.3 31.5 32.5 39.3 32.5 49s7.8 17.5 17.5 17.5S67.5 58.7 67.5 49 59.7 31.5 50 31.5zm0 29.2c-6.5 0-11.7-5.2-11.7-11.7S43.5 37.3 50 37.3s11.7 5.2 11.7 11.7-5.2 11.7-11.7 11.7z" fill="white"/><circle cx="70.5" cy="29.5" r="4.2" fill="white"/><rect x="23" y="23" width="54" height="54" rx="16" fill="none" stroke="white" stroke-width="6"/></svg>', url: 'https://instagram.com' }
   ];
+
   const developments = [
     { name: 'GitHub', img: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png', url: 'https://github.com' },
     { name: 'Stackblitz', img: '/images/socmed/stackblitz.jpeg', url: 'https://stackblitz.com/' },
-    { name: 'OneCompiler', img: 'https://onecompiler.com/favicon.ico', url: 'https://onecompiler.com' }
+    { name: 'OneCompiler', img: 'https://onecompiler.com/favicon.ico', url: 'https://onecompiler.com' },
+    { name: 'Gemini', img: '/images/socmed/gemini.jpeg', url: 'https://gemini.google.com/' },
   ]
 
   useEffect(() => {
@@ -35,24 +38,10 @@ export default function App() {
 
     return () => clearInterval(interval); // Clean up on unmount
   }, []);
-
   return (
     <>
-    <header className={styles.app.header}>
-      <h1 className={styles.app.h1}>Leeyam+</h1>
-
-        <div className={styles.app.div1}>
-          <a href="#landing" className={styles.app.navBtn}>Dashboard</a>
-          <a href="#socmed" className={styles.app.navBtn}>Social Media</a>
-          <a href="#developments" className={styles.app.navBtn}>Developments</a>
-          <a href="/settings/settings.jsx" className={styles.app.navBtn}>Settings</a>
-        </div>
-    </header>
-
     <main className={styles.app.main} id="landing">
-
       <div className={styles.app.circle}></div>
-
       <section className={styles.app.section}>
         <div className={styles.app.div2}>
           <h2 className={styles.app.h1b}>Hello there, Leeyam!</h2>
@@ -64,7 +53,6 @@ export default function App() {
         
       </section>
     </main>
-
     <main className={styles.app.main2} id="socmed">
       <section className={styles.app.section}>
         <div className={styles.app.div2}>
@@ -85,7 +73,6 @@ export default function App() {
               );
             })}
           </div>
-          <code className={styles.app.cache2}>Manage through settings.</code>
         </div>
       </section>
     </main>
@@ -109,10 +96,29 @@ export default function App() {
               );
             })}
           </div>
-          <code className={styles.app.cache2}>Manage through settings.</code>
         </div>
       </section>
     </main>
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+    <header className={styles.app.header}>
+      <h1 className={styles.app.h1}>Leeyam+</h1>
+
+        <div className={styles.app.div1}>
+          <Link to="/" className={styles.app.navBtn}>Dashboard</Link>
+          <a href="#socmed" className={styles.app.navBtn}>Social Media</a>
+          <a href="#developments" className={styles.app.navBtn}>Developments</a>
+        </div>
+    </header>
+
+    <Routes>
+      <Route path="/" element={<Landing/>} />
+    </Routes>
+    </BrowserRouter>
   )
 }
