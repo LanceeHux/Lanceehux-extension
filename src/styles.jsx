@@ -1,8 +1,8 @@
 export const styles = {
     app: {
         header: `w-full p-5 shadow-xl flex justify-between items-center bg-transparent backdrop-blur-md fixed z-50`,
-        h1: `font-bold text-3xl text-[#ffcd00] tracking-wider`,
-        div1: `flex gap-3`,
+        h1: `font-bold lg:text-3xl sm:text-xl md:text-3xl text-[#ffcd00] tracking-wider`,
+        div1: `flex gap-3 hidden lg:flex md:flex`,
         navBtn: `p-3 rounded-md hover:bg-[#ffcd00] transition-all duration-300 text-gray-400 hover:text-black font-mono`,
 
         main: `min-h-screen flex justify-center items-center w-full relative`,
@@ -19,6 +19,7 @@ export const styles = {
 
         cache1: `text-3xl md:text-4xl font-bold text-[#ffcd00] tracking-[3px] uppercase border-b-2 border-[#ffcd00]/30 pb-3 text-center`,
         cache2: `text-gray-400 text-xs`,
+        cache3: `flex md:hidden lg:hidden text-white`,
     
         appsGrid: `grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 w-full max-w-4xl mt-4`,
         apps: `group relative flex flex-col bg-[#161616] text-white gap-3 rounded-xl border border-[#ffcd00]/20 hover:border-[#ffcd00] p-5 justify-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,205,0,0.15)]`,

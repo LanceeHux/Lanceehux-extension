@@ -114,6 +114,8 @@ export default function App() {
           <a href="#socmed" className={styles.app.navBtn}>Social Media</a>
           <a href="#developments" className={styles.app.navBtn}>Developments</a>
         </div>
+
+        <button className={styles.app.cache3}>=</button>
     </header>
 
     <Routes>
