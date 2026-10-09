@@ -1,7 +1,7 @@
 export default function Settings() {
     return (
         <>
-        Hello
+        Hellogfd
         </>
     )
 }
